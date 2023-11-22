@@ -10,12 +10,20 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     </head>
 
-    <body>
-	    <div id="app">
+    <body class="p-5">
+	    <div id="app" class="position-relative">
             
-            <ul class="list-group w-25 position-absolute top-50 start-50 translate-middle">
+            <ul class="list-group w-25 m-3">
                 <li class="list-group-item" v-if="mailArray.length === 10" v-for="(item, index) in mailArray">{{mailArray[index]}}</li>
-              </ul>
+            </ul>
+            <p v-if="isLoading">is loading...</p>
+
+            <button type="button" class="btn btn-outline-info m-3" @click="generateMail()">Genera altre email</button>
+
+            <ul class="list-group w-25 m-3">
+                <li class="list-group-item" v-if="mailArrayButton.length === 10" v-for="(item, index) in mailArrayButton">{{mailArrayButton[index]}}</li>
+            </ul>
+            <p v-if="isLoadingButton">is loading...</p>
 
 	    </div>
 
